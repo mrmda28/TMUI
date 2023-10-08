@@ -10,16 +10,19 @@ import SwiftUI
 public struct TMPrimaryButtonStyle: ButtonStyle {
     
     @Environment(\.isEnabled) private var isEnabled: Bool
+    private let backgroundColor: Color
     
-    public init() { }
+    public init(_ backgroundColor: Color = .blue) {
+        self.backgroundColor = backgroundColor
+    }
     
     public func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .foregroundStyle(.white)
             .background(
                 isEnabled
-                ? (configuration.isPressed ? .blue.opacity(0.7) : .blue)
-                : .blue.opacity(0.3)
+                ? (configuration.isPressed ? backgroundColor.opacity(0.7) : backgroundColor)
+                : backgroundColor.opacity(0.3)
             )
             .clipShape(RoundedRectangle(cornerRadius: 12.0))
     }
