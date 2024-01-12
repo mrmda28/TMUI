@@ -18,12 +18,14 @@ public struct TMPrimaryButtonStyle: ButtonStyle {
     
     public func makeBody(configuration: Configuration) -> some View {
         configuration.label
+            .frame(maxWidth: .infinity)
+            .frame(height: 40)
             .foregroundStyle(.white)
             .background(
                 isEnabled
                 ? (configuration.isPressed ? backgroundColor.opacity(0.7) : backgroundColor)
                 : backgroundColor.opacity(0.3)
             )
-            .clipShape(RoundedRectangle(cornerRadius: 12.0))
+            .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 }

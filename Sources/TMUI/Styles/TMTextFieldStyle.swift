@@ -14,10 +14,11 @@ public struct TMTextFieldStyle: TextFieldStyle {
     public func _body(configuration: TextField<Self._Label>) -> some View {
         configuration
             .autocorrectionDisabled()
+            .textInputAutocapitalization(.never)
             .textFieldStyle(.plain)
             .padding(.horizontal, 10)
             .padding(.vertical, 8)
-            .background(.background)
+            .background(Color.gray.opacity(0.2))
             .clipShape(RoundedRectangle(cornerRadius: 12.0))
     }
 }
